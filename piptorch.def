@@ -1,0 +1,28 @@
+Bootstrap: docker
+From: python:3.11
+
+%post
+    pip install torch
+    pip install torchvision
+    
+    pip install numpy 
+    pip install pyvista
+    pip install scikit-learn
+    pip install scikit-image
+    pip install scipy 
+    pip install tqdm
+    pip install h5py
+    pip install pillow 
+    pip install einops
+
+%runscript
+    #!/usr/bin/bash
+    source /.singularity.d/env/91-environment.sh
+    exec "$@"
+
+%labels
+    Version "0.1"
+
+%help
+    This Apptainer container has Python and PyTorch installed.
+
